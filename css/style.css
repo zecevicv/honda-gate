@@ -1,1 +1,470 @@
+/* #Fonts
+================================================== */
+@font-face {
+  font-family: 'metali';
+  src: url('../font/Metali-400.woff');
+  font-weight: 400;
+  font-style: normal;
+}
 
+@font-face {
+  font-family: 'metali';
+  src: url('../font/Metali-500.woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'metali';
+  src: url('../font/Metali-700.woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* #Global
+================================================== */
+body {
+  font-family: 'metali', sans-serif;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* #Header
+================================================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 100;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.07);
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  width: 95%;
+  z-index: 10;
+  height: 5.2vw;
+}
+
+.header-logo {
+  margin: 0 auto;
+}
+
+.header-logo img {
+  width: 13.17vw;
+}
+
+.header-menu {
+  position: fixed;
+  top: 5.2vw;
+  right: 0;
+  background-color: white;
+  width: 22vw;
+  height: calc(100% - 5.2vw); 
+  z-index: -1;
+  transform: translateX(100%);
+  transition: all .5s ease;
+  padding-top: 6.5vw;
+}
+
+.header-menu .collapse-toggler,
+.header-menu a {
+  padding-right: 2.5vw;
+  display: block;
+}
+
+.header-menu a {
+  padding: .25vw 0;
+  padding-right: 2.5vw;
+}
+
+.header-menu a:hover {
+  background-color: #F3F3F3;
+}
+
+.header-menu .collapse-toggler {
+  display: flex;
+  align-items: center;
+}
+
+.header-menu .collapse-toggler .simbol {
+  margin-left: .75vw;
+}
+
+.header-menu .collapse > div {
+  padding-top: .25vw;
+}
+
+.header-menu .collapsible {
+  margin-bottom: .75vw;
+}
+
+.header.show .header-menu {
+  transform: translateX(0);
+}
+
+.header-hamburger a {
+  display: flex;
+  align-items: center;
+}
+
+.header-hamburger .img {
+  width: 1.77vw;
+  height: 1.04vw;
+  position: relative;
+  margin-left: .5vw;
+}
+
+.header-hamburger .img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.header-hamburger .img > *,
+.header-hamburger .text > * { opacity: 0; visibility: hidden; width: 0; display: inline-block; }
+
+.header-hamburger .img > *:first-child { opacity: 1; visibility: visible; }
+.header-hamburger .text > *:first-child { opacity: 1; visibility: visible; }
+
+.header.show .header-hamburger .img > *:first-child { opacity: 0; visibility: hidden; }
+.header.show .header-hamburger .text > *:first-child { opacity: 0; visibility: hidden; }
+
+.header.show .header-hamburger .img > *:last-child { opacity: 1; visibility: visible; }
+.header.show .header-hamburger .text > *:last-child { opacity: 1; visibility: visible; }
+
+@media (max-width: 1023.98px) {
+  .header .container {
+    width: 88%;
+    height: 16vw;
+  }
+  
+  .header-logo {
+    margin: 0 auto 0 0;
+  }
+  
+  .header-logo img {
+    width: 40vw;
+  }
+  
+  .header-menu {
+    top: 16vw;
+    width: 76%;
+    height: calc(100% - 16vw); 
+    padding-top: 16vw;
+  }
+  
+  .header-menu .collapse-toggler,
+  .header-menu a {
+    padding-right: 7.6vw;
+  }
+  
+  .header-menu a {
+    padding: 1vw 0;
+    padding-right: 7.6vw;
+  }
+
+  .header-menu .collapsible {
+    margin-bottom: 2vw;
+  }
+  
+  .header-menu .collapse-toggler .simbol {
+    margin-left: 2vw;
+  }
+  
+  .header-hamburger .img {
+    width: 7.2vw;
+    height: 4.26vw;
+    margin-left: 2vw;
+  }
+}
+
+/* #Honda Gate Main
+================================================== */
+.honda-gate-main {
+  padding-top: 5.2vw;
+}
+
+.honda-gate-main .gate {
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+
+.honda-gate-main .gate .img img,
+.honda-gate-main .gate .img picture {
+  width: 100%;
+}
+
+.honda-gate-main .gate .text {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  padding: 2.6vw 0 3.65vw 0;
+}
+
+.honda-gate-main .gate-logo {
+  width: 11.7vw;
+  height: 5.2vw;
+  display: flex;
+  align-items: center;
+  margin-bottom: auto;
+}
+
+.honda-gate-main .gate-logo img {
+  width: 100%;
+}
+
+.honda-gate-main .gate-links {
+  margin-bottom: 2.35vw;
+}
+
+.honda-gate-main .gate-links h2 {
+  text-align: center;
+  margin-bottom: 1vw;
+}
+
+.honda-gate-main .gate-links ul {
+  display: flex;
+}
+
+.honda-gate-main .gate-links ul li:not(:last-child) {
+  margin-left: 2vw;
+}
+
+.honda-gate-main .gate-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 18vw;
+  position: relative;
+}
+
+.honda-gate-main .gate-bottom h1,
+.honda-gate-main .gate-bottom h2 {
+  line-height: 1;
+}
+
+.honda-gate-main .gate-bottom h1,
+.honda-gate-main .gate-bottom h2 {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  opacity: 1;
+  visibility: visible;
+  transition: all .4s ease;
+}
+
+.honda-gate-main .gate-bottom a {
+  height: 3.125vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 .75vw;
+  border: 1px solid white;
+  transition: all .5s ease;
+}
+
+.honda-gate-main .gate-bottom a img {
+  width: 2vw;
+}
+
+@media (min-width: 1024px) {
+  .honda-gate-main .gates {
+    display: flex;
+    max-width: 100%;
+    width: 100%;
+    height: calc(100vh - 5.2vw);
+  }
+  
+  .honda-gate-main .gate {
+    height: 100%;
+    flex: 0 0 33.33333%;
+    transition: all .5s ease;
+    flex-shrink: 1;
+  }
+  
+  .honda-gate-main .gate:hover {
+    flex: 0 0 43%;
+  }
+
+  .honda-gate-main .gate .img {
+    opacity: 1;
+    transition: all .5s ease;
+  }
+
+  .honda-gate-main .gate:hover .img {
+    opacity: 0;
+  }
+  
+  .honda-gate-main .gate .img,
+  .honda-gate-main .gate .img img,
+  .honda-gate-main .gate .img picture {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .honda-gate-main .gate .img img,
+  .honda-gate-main .gate .img picture {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .honda-gate-main .gate-links {
+    opacity: 0;
+    visibility: hidden;
+    transition: all .5s ease;
+  }
+
+  .honda-gate-main .gate:hover .gate-links {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .honda-gate-main .gate:hover .gate-bottom a {
+    flex-grow: 1;
+  }
+  
+  .honda-gate-main .gate:hover .gate-bottom a span {
+    opacity: 1;
+    visibility: visible;
+    width: auto;
+    height: auto;
+  }
+
+  .honda-gate-main .gate:hover .gate-bottom h1,
+  .honda-gate-main .gate:hover .gate-bottom h2 {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .honda-gate-main .gate-bottom a {
+    margin-right: auto;
+  }
+
+  .honda-gate-main .gate-bottom a span {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    display: block;
+    transition: all .5s ease;
+  }
+
+  .honda-gate-main .video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .honda-gate-main .video,
+  .honda-gate-main .video video {
+    width: 100%;
+  }
+
+  .honda-gate-main .video video {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .honda-gate-main .gate:hover .progress-bar {
+    opacity: 1;
+    transition: all .4s ease;
+  }
+
+  .honda-gate-main .progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    opacity: 0;
+  }
+
+  .honda-gate-main .progress-line {
+    height: 100%;
+    width: 0;
+    background-color: #D90017;
+  }
+}
+
+@media (max-width: 1023.98px) {
+  .honda-gate-main {
+    padding-top: 16vw;
+  }
+
+  .honda-gate-main .gate .text {
+    align-items: flex-start;
+    padding: 3.33vw 5% 6.66vw 5%;
+  }
+  
+  .honda-gate-main .gate-logo {
+    width: 30vw;
+    height: 13.33vw;
+    align-items: flex-end;
+    margin-bottom: 16vw;
+  }
+
+  .honda-gate-main .gate-bottom {
+    justify-content: flex-start;
+    width: 100%;
+    position: static;
+  }
+  
+  .honda-gate-main .gate-bottom h1,
+  .honda-gate-main .gate-bottom h2 {
+    position: absolute;
+    top: 23vw;
+    right: 5%;
+    transition: none;
+  }
+
+  .honda-gate-main .gate-bottom h1 br,
+  .honda-gate-main .gate-bottom h2 br {
+    display: none;
+  }
+
+  .honda-gate-main .gate-links {
+    margin-bottom: 9.33vw;
+  }
+  
+  .honda-gate-main .gate-links h2 {
+    text-align: right;
+  }
+  
+  .honda-gate-main .gate-links ul li:not(:last-child) {
+    margin-left: 4vw;
+  }
+
+  .honda-gate-main .gate-bottom a {
+    height: 11.33vw;
+    padding: 0 2vw;
+    width: 52.66vw;
+  }
+
+  .honda-gate-main .gate-bottom a img {
+    width: 5.33vw;
+  }
+}
