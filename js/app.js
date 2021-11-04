@@ -14,31 +14,91 @@ if (headerHamburger) {
 /* #Video playing on hover
   ======================================================= */
 const gates = document.querySelectorAll('.honda-gate-main .gate');
+const gatesEl = document.querySelector('.honda-gate-main .gates');
+const gatesArray = [];
+gates.forEach((gate) => {
+  gatesArray.push(gate);
+})
+const gatesProgresses = document.querySelectorAll('.honda-gate-main .progress-line');
 
 if (gates && window.innerWidth >= 1024) {
+
+  // Adding to Arrays
+  const gatesVideos = [];
   gates.forEach((gate) => {
     const gateVideo = gate.querySelector('video');
-    const gateVideoProgress = gate.querySelector('.progress-line');
-
-    const gateVideoProgressTl = gsap.timeline({paused: true});
-    gateVideoProgressTl.to(gateVideoProgress, {
-      width: '100%',
-      duration: 10,
-      ease: 'none'
-    });
-    
-    gate.addEventListener('mouseenter', (e) => {
-      gateVideo.currentTime = 0;
-      gateVideo.play();
-
-      gateVideoProgressTl.play();
-    });
-
-    gate.addEventListener('mouseleave', (e) => {
-      gateVideo.pause();
-
-      gateVideoProgressTl.restart();
-      gateVideoProgressTl.pause();
-    });
+    gatesVideos.push(gateVideo);
   });
+
+  // Play video and progress bar function
+  const playGate = (index) => {
+    gates.forEach((gate, ind) => {
+      const gateProgress = gate.querySelector('.progress-line');
+
+      // Reset everything to default
+      gate.classList.remove('active');
+      gatesVideos[ind].currentTime = 0;
+      gatesVideos[ind].pause();
+
+      gatesProgresses.forEach((progress) => {
+        gsap.set(progress, {
+          width: '0',
+        });
+      });
+
+      // Play video
+      if (ind == index) {
+        gate.classList.add('active');
+        gatesVideos[index].currentTime = 0;
+        gatesVideos[index].play();
+        const videoDuration = gatesVideos[ind].duration;
+
+        gsap.to(gateProgress, {
+          width: '100%',
+          duration: 10,
+          ease: 'none'
+        });
+      }
+    });
+  };
+
+  // Playing 2 different cases
+  // One when mouse is over elements (playing video that's hovered)
+  // Second autoplay of videos
+  let gateIndex = 0;
+  let gatesHovered = false;
+
+  // Initial call
+  playGate(0);
+
+  document.addEventListener('mousemove', (e) => {
+    // Mouse over gates elements
+    if (e.target.closest('.honda-gate-main')) {
+      const hoveredGate = e.target.closest('.gate');
+      gatesHovered = true;
+
+      if (gateIndex != gatesArray.indexOf(hoveredGate)) {
+        gateIndex = gatesArray.indexOf(hoveredGate);
+        playGate(gatesArray.indexOf(hoveredGate));
+      }
+
+    } else {
+      gatesHovered = false;
+    }
+  });
+
+  // Video status event listeners
+  gatesVideos.forEach((video) => {
+    video.addEventListener('ended', (e) => {
+      if (!gatesHovered) {
+        if (gateIndex == gates.length - 1) {
+          gateIndex = 0;
+        } else {
+          gateIndex++;
+        }
+        playGate(gateIndex);
+      }
+    })
+  });
+
 }

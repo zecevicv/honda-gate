@@ -51,6 +51,7 @@ body {
 
 .header-logo {
   margin: 0 auto;
+  padding-left: 2.25vw;
 }
 
 .header-logo img {
@@ -301,7 +302,7 @@ body {
     flex-shrink: 1;
   }
   
-  .honda-gate-main .gate:hover {
+  .honda-gate-main .gate.active {
     flex: 0 0 43%;
   }
 
@@ -310,7 +311,7 @@ body {
     transition: all .5s ease;
   }
 
-  .honda-gate-main .gate:hover .img {
+  .honda-gate-main .gate.active .img {
     opacity: 0;
   }
   
@@ -333,24 +334,24 @@ body {
     transition: all .5s ease;
   }
 
-  .honda-gate-main .gate:hover .gate-links {
+  .honda-gate-main .gate.active .gate-links {
     opacity: 1;
     visibility: visible;
   }
 
-  .honda-gate-main .gate:hover .gate-bottom a {
+  .honda-gate-main .gate.active .gate-bottom a {
     flex-grow: 1;
   }
   
-  .honda-gate-main .gate:hover .gate-bottom a span {
+  .honda-gate-main .gate.active .gate-bottom a span {
     opacity: 1;
     visibility: visible;
     width: auto;
     height: auto;
   }
 
-  .honda-gate-main .gate:hover .gate-bottom h1,
-  .honda-gate-main .gate:hover .gate-bottom h2 {
+  .honda-gate-main .gate.active .gate-bottom h1,
+  .honda-gate-main .gate.active .gate-bottom h2 {
     opacity: 0;
     visibility: hidden;
   }
@@ -388,7 +389,7 @@ body {
     object-position: center;
   }
 
-  .honda-gate-main .gate:hover .progress-bar {
+  .honda-gate-main .gate.active .progress-bar {
     opacity: 1;
     transition: all .4s ease;
   }
