@@ -40,10 +40,8 @@ if (gates && window.innerWidth >= 1024) {
       gatesVideos[ind].currentTime = 0;
       gatesVideos[ind].pause();
 
-      gatesProgresses.forEach((progress) => {
-        gsap.set(progress, {
-          width: '0',
-        });
+      gsap.set(gateProgress, {
+        width: '0',
       });
 
       // Play video
@@ -53,6 +51,9 @@ if (gates && window.innerWidth >= 1024) {
         gatesVideos[index].play();
         const videoDuration = gatesVideos[ind].duration;
 
+        gsap.set(gateProgress, {
+          width: '0',
+        });
         gsap.to(gateProgress, {
           width: '100%',
           duration: 10,
